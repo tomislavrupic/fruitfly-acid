@@ -33,3 +33,5 @@ Inspired by [Iftah's Sting](https://www.if-tah.com/devices/sting/) and [Fly Lab]
 `npm test` runs the Node tests. `npm run build` creates a standalone static `dist/` folder for GitHub Pages. No npm dependencies.
 
 This is an experimental browser instrument, not a packaged DAW plug-in. Code availability does not change the separate CC BY data license.
+
+Changing a pattern stops playback first: Generate, saved-pattern recall, Undo, sequence edits and pattern controls. Press Play to hear the changed pattern. Synth tone, delay and kick controls remain live.
