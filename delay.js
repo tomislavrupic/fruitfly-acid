@@ -4,3 +4,4 @@ export class DelayFX{
  stop(){const t=this.context.currentTime;this.feedback.gain.setTargetAtTime(0,t,.01);this.wet.gain.setTargetAtTime(0,t,.01);}
  dispose(){this.source.disconnect(this.dry);this.source.disconnect(this.delay);for(const n of [this.dry,this.delay,this.feedback,this.wet])n.disconnect();}
 }
+export function delaySeconds(bpm,division,manual){return division===0?manual:60/bpm*division;}
