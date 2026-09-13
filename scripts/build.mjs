@@ -1,5 +1,12 @@
-import {mkdir,rm,copyFile,cp,writeFile} from 'node:fs/promises';
-await rm('dist',{recursive:true,force:true});await mkdir('dist',{recursive:true});
-for(const file of ['index.html','style.css','app.js','audio.js','core.js','delay.js','kick.js','knob.js','midi-output.js','playback.js','session.js'])await copyFile(file,`dist/${file}`);
-await mkdir('dist/assets');await copyFile('assets/fly-concept-v1.png','dist/assets/fly-concept-v1.png');await copyFile('assets/social-card-v1.png','dist/assets/social-card-v1.png');await cp('data','dist/data',{recursive:true});await writeFile('dist/.nojekyll','');
-console.log('Built static site in dist/');
+import {mkdir,rm,copyFile,cp,writeFile,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const modules=['app.js','audio.js','core.js','delay.js','kick.js','knob.js','midi-output.js','playback.js','session.js'];
+const hash=createHash('sha256');for(const file of [...modules,'style.css'])hash.update(await readFile(file));
+const release=`releases/${hash.digest('hex').slice(0,16)}`;
+await rm('dist',{recursive:true,force:true});await mkdir(`dist/${release}`,{recursive:true});
+for(const file of [...modules,'style.css'])await copyFile(file,`dist/${release}/${file}`);
+const html=(await readFile('index.html','utf8')).replace('src="app.js"',`src="${release}/app.js"`).replace('href="style.css"',`href="${release}/style.css"`);
+await writeFile('dist/index.html',html);
+await mkdir('dist/assets');for(const file of ['fly-concept-v1.png','social-card-v1.png'])await copyFile(`assets/${file}`,`dist/assets/${file}`);
+await cp('data','dist/data',{recursive:true});await writeFile('dist/.nojekyll','');
+console.log(`Built static site in dist/ with immutable ${release}`);
