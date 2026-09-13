@@ -34,4 +34,4 @@ Inspired by [Iftah's Sting](https://www.if-tah.com/devices/sting/) and [Fly Lab]
 
 This is an experimental browser instrument, not a packaged DAW plug-in. Code availability does not change the separate CC BY data license.
 
-Changing a pattern stops playback first: Generate, saved-pattern recall, Undo, sequence edits and pattern controls. Press Play to hear the changed pattern. Synth tone, delay and kick controls remain live.
+Pattern changes keep playback running. Loop uses the edited pattern on upcoming scheduled steps; AAAB picks up changes at the next half-pattern boundary. Tone, delay and kick controls remain live.
