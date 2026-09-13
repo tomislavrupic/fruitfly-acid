@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+dist/
+HANDOFF.md
+VERIFICATION.md
+CONCEPT-01.png
+assets/README.md
+tests/session-example.json
+tests/session-invalid.json
