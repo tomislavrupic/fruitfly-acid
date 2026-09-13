@@ -35,3 +35,5 @@ Inspired by [Iftah's Sting](https://www.if-tah.com/devices/sting/) and [Fly Lab]
 This is an experimental browser instrument, not a packaged DAW plug-in. Code availability does not change the separate CC BY data license.
 
 Pattern changes keep playback running. Loop uses the edited pattern on upcoming scheduled steps; AAAB picks up changes at the next half-pattern boundary. Tone, delay and kick controls remain live.
+
+Delay defaults to ¾ of a quarter-note beat (dotted eighth): 375 ms at 120 BPM. Choose ¼, ½, ¾ or 1 beat for tempo sync. Turning Time switches to Free mode. Sync selection is saved in sessions.
