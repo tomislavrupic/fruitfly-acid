@@ -27,3 +27,5 @@ select option,select optgroup{color:#10252c;background-color:#f0f7f8}
 select option:checked{color:#061217;background-color:#87e9d1}
 
 #delay-sync{display:block;max-width:100%;margin-top:10px;font-size:9px;padding:8px 4px;letter-spacing:0}
+
+.creator-credit{color:var(--mint);font-size:15px}
